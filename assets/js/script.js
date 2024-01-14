@@ -34,14 +34,17 @@ $('#search-form').on('submit', function (e) {
                 const cityBtn = $('<button>').text(cityInput);
                 $('#history').append(cityBtn);
 
-                let cityName = data.city.name;
-                let date = data.list[0].dt_txt;
-                let icon = data.list[0].weather[0].icon;
-                let temp = data.list[0].main.temp;
-                let humidity = data.list[0].main.humidity;
-                let wind = data.list[0].wind.speed;
+                let cityName = $('<h3>').text(`City: ${data.city.name}`);
+                let date = $('<p>').text(`Date and time: ${data.list[0].dt_txt}`);
+                let iconCode = (data.list[0].weather[0].icon);
 
-                console.log(cityName, date, icon, temp, humidity, wind)
+                let icon = $('<img>').attr('src', `https://openweathermap.org/img/wn/${iconCode}@2x.png`)
+
+                let temp = $('<p>').text(`Temperature: ${data.list[0].main.temp}`);
+                let humidity = $('<p>').text(`Humidity: ${data.list[0].main.humidity}`);
+                let wind = $('<p>').text(`Wind speed: ${data.list[0].wind.speed}`);
+
+                $('#history').append(cityName, date, icon, temp, humidity, wind)
 
                 // clear the input box ready for the next search
                 $('#search-input').val("")
