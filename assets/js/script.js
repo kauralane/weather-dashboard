@@ -7,6 +7,9 @@ $(function () {
 
     $('#search-form').on('submit', function (e) {
         e.preventDefault();
+        $('.forecast-heading').css('visibility', 'visible');
+
+
         let cityInput = $('#search-input').val().trim();
 
         const coordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&appid=${APIkey}`
