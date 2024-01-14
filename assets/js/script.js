@@ -27,29 +27,6 @@ $(function () {
             })
     })
 
-    // run functions when clicking previous search history button - get city name from local storage
-    // $('#cityButton').on('click', function (e) {
-    //     e.preventDefault();
-    //     console.log('clicked!')
-
-    //     // Empty out the previous search results (if any), and make the today and 5 day forecast headings visible
-    //     $('#today').empty()
-    //     $('#forecast').empty()
-    //     $('.forecast-heading').css('visibility', 'visible');
-
-    //     let prevCity = localStorage.getItem('cityButton')
-
-    //     const coordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${prevCity}&appid=${APIkey}`
-
-    //     fetch(coordURL)
-    //         .then(function (response) {
-    //             return response.json();
-    //         })
-    //         .then(function (data) {
-    //             getLatLon(data);
-    //         })
-    // })
-
 
     function getLatLon(data) {
         let lat = data[0].lat;
@@ -114,22 +91,32 @@ const baseURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
 
 function saveSearch(cityInput) {
 
-    let cityButton = $('<button>').text(cityInput).attr('id', 'cityButton');
+    let cityButton = $('<button>').text(cityInput).addClass('cityButton').data('cityName', cityInput);
     $('#history').append(cityButton);
 
-let cityNames = localStorage.getItem('cityButton') || [];
+    let citiesArray = JSON.parse(localStorage.getItem('cities')) || [];
+    citiesArray.push(cityInput)
 
-    localStorage.setItem('cityButton', cityInput)
+    localStorage.setItem('cities', JSON.stringify(citiesArray))
+    }
 
-    $('#cityButton').on('click', function (e) {
-        console.log('clicked')
-    })
+$('#history').on('click', '.cityButton', function () {
+    let cityName = $(this).data('cityName')
 
-}
+    // Empty out the previous search results (if any), and make the today and 5 day forecast headings visible
+    $('#today').empty()
+    $('#forecast').empty()
+    $('.forecast-heading').css('visibility', 'visible');
 
-// function renderHistory() {
-//     localStorage.getItem('cityButton')
+    const coordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${APIkey}`
 
-// }
-
+    fetch(coordURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            getLatLon(data);
+        })
 })
+})
+
