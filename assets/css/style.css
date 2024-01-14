@@ -1,6 +1,11 @@
+
 /* .forecast-heading {
     visibility: hidden;
 } */
+
+:root {
+    --brightOrange: #ff5500;
+}
 
 /* Basic font and colour styling */
 
@@ -12,31 +17,43 @@ body {
     background-color: lightblue;
 }
 
-h1 {
-    text-decoration: bold;
-    text-align: center;
-    color: #ff5500;
-    padding-top: 30px;
-    font-family: "Domine", serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
-}
-
-h2 {
-    color: #b33c00;
-    font-weight: 500;
-}
-
-h3 {
-    color: #b33c00;
-    font-weight: 300;
-}
-
 /* Header styling including image */
 .weather-header {
     background-image: url(../images/clouds.jpeg);
     background-size: cover;
     margin: 0;
     height: 100px;
+}
+
+.search-area {
+    background-color: azure;
+}
+
+.current-area {
+    background-color: #c2f5fb;
+}
+
+#search-button {
+    width: 100%;
+    background-color:var(--brightOrange);
+    color: white;
+}
+
+#search-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+h1 {
+    padding-top: 30px;
+    font-family: "Domine", serif;
+    color: var(--brightOrange);
+}
+
+.cityButton {
+    background-color: #c2f5fb;
+    color: var(--brightOrange);
+    border: var(--brightOrange);
+    width: 100%;
+    margin-bottom: 10px;
 }

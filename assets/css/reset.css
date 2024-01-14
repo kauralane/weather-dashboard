@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
 
 /* Document
    ========================================================================== */
@@ -351,13 +351,10 @@ details {
     display: block;
 }
 
-/*
-   * Add the correct display in all browsers.
+   /* Add the correct display in all browsers.
    */
 
 summary {
-    display: list-item;
-}
 
 /* Misc
      ========================================================================== */

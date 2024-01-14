@@ -88,6 +88,7 @@ const baseURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
 
 // for loop to find the forecast for the same time point at each day; in this case it is every 8th object in the 'list' array from the API
             for (let i = 0; i < data.list.length; i += 8) {
+
             let date = $('<p>').text(`Date and time: ${data.list[i].dt_txt}`);
             let iconCode = (data.list[i].weather[0].icon);
 
@@ -105,6 +106,7 @@ const baseURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
 
 function saveSearch(cityInput) {
 
+    if (cityInput !== "") {
     let cityButton = $('<button>').text(cityInput).addClass('cityButton').data('cityName', cityInput);
     $('#history').append(cityButton);
 
@@ -113,6 +115,7 @@ function saveSearch(cityInput) {
 
     localStorage.setItem('cities', JSON.stringify(citiesArray))
     }
+}
 
 $('#history').on('click', '.cityButton', function () {
     let cityName = $(this).data('cityName')
