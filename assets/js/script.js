@@ -58,7 +58,6 @@ $(function () {
                 return response.json();
             })
             .then(function (data) {
-                console.log(data)
     
                 let cityName = $('<h3>').text(`City: ${data.name}`);
                 let iconCode = (data.weather[0].icon);
