@@ -144,7 +144,7 @@ $('#history').on('click', '.cityButton', function () {
     $('#forecast-24').empty()
     $('#forecast-32').empty()
 
-    const coordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${APIkey}`
+    const coordURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${APIkey}`
 
     fetch(coordURL)
         .then(function (response) {
