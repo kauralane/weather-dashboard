@@ -1,13 +1,13 @@
 $(function () {
+    // Retrieve the last 5 values from local storage and render them as buttons on refresh/open
+renderHistory();
 
     const APIkey = "a69ab5ecb3b3c6e1ed7ac0baa202eabb"
-    // let cityInput = $('#search-input').val().trim();
+
 
     // if there is no weather being displayed, automatically display the weather for London, UK
     if ($('#today').empty()) {
         const coordURL = `http://api.openweathermap.org/geo/1.0/direct?q=London&appid=${APIkey}`
-
-// Need to add code to retrieve last 5 values from local storage and render them as buttons on refresh/open
 
         fetch(coordURL)
             .then(function (response) {
@@ -122,15 +122,15 @@ function saveSearch(cityInput) {
     }
 }
 
-// not yet functioning
+// render buttons for the 5 most recent searches from local storage
 function renderHistory() {
-    let prevCities = JSON.parse(localStorage.getItem('cities'));
-    console.log(prevCities)
-    // for (let i = 0; i < 6; i++) {
-    //     const element = cities[i];
-        
-    // }
-    
+    let citiesArray = JSON.parse(localStorage.getItem('cities')) || [];
+    let lastFive = citiesArray.slice(-5);
+    lastFive.forEach(city => {
+        let cityButton = $('<button>').text(city).addClass('cityButton').data('cityName', city);
+        $('#history').append(cityButton);
+
+    });
 }
 
 $('#history').on('click', '.cityButton', function () {
@@ -138,7 +138,11 @@ $('#history').on('click', '.cityButton', function () {
 
     // Empty out the previous search results (if any), and make the today and 5 day forecast headings visible
     $('#today').empty()
-    $('#forecast').empty()
+    $('#forecast-0').empty()
+    $('#forecast-8').empty()
+    $('#forecast-16').empty()
+    $('#forecast-24').empty()
+    $('#forecast-32').empty()
 
     const coordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${APIkey}`
 

@@ -54,7 +54,6 @@ h1 {
 .cityButton {
     background-color: #c2f5fb;
     color: var(--brightOrange);
-    border: 3px, solid, var(--brightOrange);
     width: 100%;
     margin-bottom: 10px;
 }
