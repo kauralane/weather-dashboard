@@ -96,11 +96,11 @@ const baseURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
             //add icon code to the relevant URL and set it as the img source
             let icon = $('<img>').attr('src', `https://openweathermap.org/img/wn/${iconCode}@2x.png`)
 
-                let temp = $('<p>').text(`Temperature: ${data.list[i].main.temp}°C`);
+            let temp = $('<p>').text(`Temperature: ${data.list[i].main.temp}°C`);
             let humidity = $('<p>').text(`Humidity: ${data.list[i].main.humidity}%`);
             let wind = $('<p>').text(`Wind speed: ${data.list[i].wind.speed} metres/second`);
 
-            $('#forecast').append(date, icon, temp, humidity, wind)
+            $(`#forecast-${[i]}`).append(date, icon, temp, humidity, wind)
             }
 })
 }
