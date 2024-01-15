@@ -26,7 +26,7 @@
   <div class="container-fluid" style="max-width: 1400px">
     
     <div class="row">
-      <aside class="col-lg-3 pb-3 search-area">
+      <div class="col-lg-3 pb-3 search-area">
         <h2 id="form-heading" class="h3 form-label">
           Search for a City:
         </h2>
@@ -49,7 +49,7 @@
           <card></card>
           <!-- buttons created in jQuery will go here -->
         </div>
-      </aside>
+      </div>
 
       <div class="col-lg-9 pb-3 current-area">
 
@@ -59,22 +59,20 @@
         </div>
         </div>
 
-        <div class="row forecast-row">
-        <h3 class="forecast-heading">5 Day Forecast:</h3>
-        <container class="container-fluid col-lg-10" id="forecast-container" role="region" aria-live="polite">
-          <card id="forecast-0" class="col-lg-2">
-          </card>
-          <card id="forecast-8" class="col-lg-2">
-          </card>
-          <card id="forecast-16" class="col-lg-2">
-          </card>
-          <card id="forecast-24" class="col-lg-2">
-          </card>
-          <card id="forecast-32" class="col-lg-2">
-          </card>
-        </container>
-      </div>
-  </div>
+        <div class="row forecast-row float-right">
+    <h3 class="forecast-heading">5 Day Forecast:</h3>
+    <div class="container-fluid col-lg-12 float-right" id="forecast-container" role="region" aria-live="polite">
+        <div class="row">
+            <div id="forecast-0" class="card col-lg-2 forecast-card"></div>
+            <div id="forecast-8" class="card col-lg-2 forecast-card"></div>
+            <div id="forecast-16" class="card col-lg-2 forecast-card"></div>
+            <div id="forecast-24" class="card col-lg-2 forecast-card"></div>
+            <div id="forecast-32" class="card col-lg-2 forecast-card"></div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
 
   <!-- Day.js -->
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>

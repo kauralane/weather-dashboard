@@ -65,3 +65,16 @@ h1 {
 #form-heading, .forecast-heading {
     margin-top: 10px;
 }
+
+.forecast-card p {
+    font-size: small;
+}
+
+.forecast-card {
+    background-color: lightskyblue;
+    color: black;
+    justify-content: flex-start;
+    align-items: right;
+    align-content: right;
+    margin-left: 10px;
+}

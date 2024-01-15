@@ -23,9 +23,13 @@ $(function () {
     $('#search-form').on('submit', function (e) {
         e.preventDefault();
 
-        // Empty out the previous search results (if any), and make the today and 5 day forecast headings visible
+        // Empty out the previous search results (if any)
         $('#today').empty()
-        $('#forecast').empty()
+        $('#forecast-0').empty()
+        $('#forecast-8').empty()
+        $('#forecast-16').empty()
+        $('#forecast-24').empty()
+        $('#forecast-32').empty()
 
         let cityInput = $('#search-input').val().trim();
         saveSearch(cityInput);
@@ -100,7 +104,7 @@ const baseURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
             let humidity = $('<p>').text(`Humidity: ${data.list[i].main.humidity}%`);
             let wind = $('<p>').text(`Wind speed: ${data.list[i].wind.speed} metres/second`);
 
-            $(`#forecast-${[i]}`).append(date, icon, temp, humidity, wind)
+            $(`#forecast-${i}`).append(date, icon, temp, humidity, wind)
             }
 })
 }
