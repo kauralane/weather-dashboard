@@ -1,9 +1,7 @@
 $(function () {
     // Retrieve the last 5 values from local storage and render them as buttons on refresh/open
-renderHistory();
 
     const APIkey = "a69ab5ecb3b3c6e1ed7ac0baa202eabb"
-
 
     // if there is no weather being displayed, automatically display the weather for London, UK
     if ($('#today').empty()) {
@@ -17,6 +15,8 @@ renderHistory();
                 getLatLon(data);
             })
     }
+
+    renderHistory();
 
     // On submit, use the coordinates API key to turn the city name that the user has inputted into latitude and longitude. Then run a fetch with the base API key, using those coordinates. 
 
@@ -122,7 +122,7 @@ function saveSearch(cityInput) {
     }
 }
 
-// render buttons for the 5 most recent searches from local storage
+// render buttons for the 5 most recent searches from local storage (only the last five)
 function renderHistory() {
     let citiesArray = JSON.parse(localStorage.getItem('cities')) || [];
     let lastFive = citiesArray.slice(-5);

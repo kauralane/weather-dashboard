@@ -8,6 +8,9 @@ The application takes the user's text input and uses OpenWeather's geo-coordinat
 
 The application then uses another OpenWeatherAPI to run a fetch for the coordinates of the city. Key weather features are rendered to the page dynamically using jQuery. User searches are also saved to local storage, and rendered as buttons on the page, so that a user can click on a previously searched city and immediately call up the forecast.
 
+[Deployed application]()
+![]()
+
 # Usage
 The user simply needs to search a city in the search box and hit enter or click the submit button. The current weather forecast and a 5-day future forcast will appear.
 
@@ -16,5 +19,8 @@ None needed as this runs in the browser, but it does need an API key.
 
 # Credits
 CSS reset sheet: github.com/necolas/normalize.css
+<br>
+OpenWeather API: https://openweathermap.org/ 
 
-OpenWeatherAPI
+# License
+Licensed under the MIT License. 
