@@ -3,10 +3,11 @@ $(function () {
     const APIkey = "a69ab5ecb3b3c6e1ed7ac0baa202eabb"
     // let cityInput = $('#search-input').val().trim();
 
-
     // if there is no weather being displayed, automatically display the weather for London, UK
     if ($('#today').empty()) {
         const coordURL = `http://api.openweathermap.org/geo/1.0/direct?q=London&appid=${APIkey}`
+
+// Need to add code to retrieve last 5 values from local storage and render them as buttons on refresh/open
 
         fetch(coordURL)
             .then(function (response) {
@@ -59,15 +60,15 @@ $(function () {
             })
             .then(function (data) {
     
-                let cityName = $('<h3>').text(`City: ${data.name}`);
+                let cityName = $('<h4>').text(`City: ${data.name}`);
                 let iconCode = (data.weather[0].icon);
 
                 //add icon code to the relevant URL and set it as the img source
                 let icon = $('<img>').attr('src', `https://openweathermap.org/img/wn/${iconCode}@2x.png`)
 
-                let temp = $('<p>').text(`Temperature (celcius): ${data.main.temp}`);
-                let humidity = $('<p>').text(`Humidity: ${data.main.humidity}`);
-                let wind = $('<p>').text(`Wind speed: ${data.wind.speed}`);
+                let temp = $('<p>').text(`Temperature: ${data.main.temp}°C`);
+                let humidity = $('<p>').text(`Humidity: ${data.main.humidity} %`);
+                let wind = $('<p>').text(`Wind speed: ${data.wind.speed} metres/second`);
 
                 $('#today').append(cityName, icon, temp, humidity, wind)
 
@@ -95,9 +96,9 @@ const baseURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
             //add icon code to the relevant URL and set it as the img source
             let icon = $('<img>').attr('src', `https://openweathermap.org/img/wn/${iconCode}@2x.png`)
 
-            let temp = $('<p>').text(`Temperature (celcius): ${data.list[i].main.temp}`);
-            let humidity = $('<p>').text(`Humidity: ${data.list[i].main.humidity}`);
-            let wind = $('<p>').text(`Wind speed: ${data.list[i].wind.speed}`);
+                let temp = $('<p>').text(`Temperature: ${data.list[i].main.temp}°C`);
+            let humidity = $('<p>').text(`Humidity: ${data.list[i].main.humidity}%`);
+            let wind = $('<p>').text(`Wind speed: ${data.list[i].wind.speed} metres/second`);
 
             $('#forecast').append(date, icon, temp, humidity, wind)
             }
@@ -117,6 +118,17 @@ function saveSearch(cityInput) {
     }
 }
 
+// not yet functioning
+function renderHistory() {
+    let prevCities = JSON.parse(localStorage.getItem('cities'));
+    console.log(prevCities)
+    // for (let i = 0; i < 6; i++) {
+    //     const element = cities[i];
+        
+    // }
+    
+}
+
 $('#history').on('click', '.cityButton', function () {
     let cityName = $(this).data('cityName')
 
@@ -134,5 +146,5 @@ $('#history').on('click', '.cityButton', function () {
             getLatLon(data);
         })
 })
-})
 
+})

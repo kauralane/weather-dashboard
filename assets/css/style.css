@@ -53,7 +53,16 @@ h1 {
 .cityButton {
     background-color: #c2f5fb;
     color: var(--brightOrange);
-    border: var(--brightOrange);
+    border: 3px, solid, var(--brightOrange);
     width: 100%;
     margin-bottom: 10px;
 }
+
+.forecast-row {
+    margin-top: 10px;
+}
+
+#form-heading, .forecast-heading {
+    margin-top: 10px;
+}
+
