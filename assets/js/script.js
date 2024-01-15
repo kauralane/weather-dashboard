@@ -5,7 +5,7 @@ $(function () {
 
     // if there is no weather being displayed, automatically display the weather for London, UK
     if ($('#today').empty()) {
-        const coordURL = `http://api.openweathermap.org/geo/1.0/direct?q=London&appid=${APIkey}`
+        const coordURL = `https://api.openweathermap.org/geo/1.0/direct?q=London&appid=${APIkey}`
 
         fetch(coordURL)
             .then(function (response) {
@@ -35,7 +35,7 @@ $(function () {
         saveSearch(cityInput);
 
 // run a fetch to get the coordinates of the city input
-        const coordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&appid=${APIkey}`
+        const coordURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&appid=${APIkey}`
 
         fetch(coordURL)
             .then(function (response) {
