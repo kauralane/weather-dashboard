@@ -64,7 +64,7 @@ $(function () {
             })
             .then(function (data) {
     
-                let cityName = $('<h4>').text(`City: ${data.name}`);
+                let cityName = $('<h4>').text(`${data.name}`);
                 let iconCode = (data.weather[0].icon);
 
                 //add icon code to the relevant URL and set it as the img source
@@ -94,7 +94,7 @@ const baseURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon
 // for loop to find the forecast for the same time point at each day; in this case it is every 8th object in the 'list' array from the API
             for (let i = 0; i < data.list.length; i += 8) {
 
-            let date = $('<p>').text(`Date and time: ${data.list[i].dt_txt}`);
+            let date = $('<p>').text(`${data.list[i].dt_txt}`).addClass('dateHeader');
             let iconCode = (data.list[i].weather[0].icon);
 
             //add icon code to the relevant URL and set it as the img source

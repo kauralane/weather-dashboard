@@ -50,6 +50,7 @@ h1 {
     color: var(--brightOrange);
 }
 
+/* Styling the jQuery search history buttons */
 .cityButton {
     background-color: #c2f5fb;
     color: var(--brightOrange);
@@ -58,8 +59,17 @@ h1 {
     margin-bottom: 10px;
 }
 
+/* Styling the 5 day weather forecast cards */
 .forecast-row {
-    margin-top: 10px;
+    justify-content: center;
+}
+
+h3.forecast-heading {
+    margin-left: 60px;
+}
+
+h3.current-heading {
+    padding-top: 10px;
 }
 
 #form-heading, .forecast-heading {
@@ -71,10 +81,22 @@ h1 {
 }
 
 .forecast-card {
-    background-color: lightskyblue;
+    background-color: #c2f5fb;
     color: black;
     justify-content: flex-start;
     align-items: right;
     align-content: right;
     margin-left: 10px;
 }
+
+.dateHeader {
+    font-weight:1000;
+    size: 18px;
+    padding-top: 5px;
+    color: var(--brightOrange);
+}
+
+h4 {
+    color: var(--brightOrange);
+}
+
