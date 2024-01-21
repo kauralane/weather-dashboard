@@ -1,7 +1,7 @@
 $(function () {
-    // Retrieve the last 5 values from local storage and render them as buttons on refresh/open
 
     const APIkey = "a69ab5ecb3b3c6e1ed7ac0baa202eabb"
+    $('#current-date').text(dayjs());
 
     // if there is no weather being displayed, automatically display the weather for London, UK
     if ($('#today').empty()) {
@@ -16,6 +16,7 @@ $(function () {
             })
     }
 
+    // Retrieve the last 5 values from local storage and render them as buttons on refresh/open
     renderHistory();
 
     // On submit, use the coordinates API key to turn the city name that the user has inputted into latitude and longitude. Then run a fetch with the base API key, using those coordinates. 
@@ -154,5 +155,4 @@ $('#history').on('click', '.cityButton', function () {
             getLatLon(data);
         })
 })
-
 })
